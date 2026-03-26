@@ -1,0 +1,12 @@
+2026/03/26 08:14:09 RADIUS MVP server listening on UDP :1812
+{
+  "State": "0x0001027f",
+  "User-Name": "test-user",
+  "User-Password": "0xd0eabb8e7a0501e322e64b42567a4562"
+}
+<?xml version="1.0" encoding="UTF-8"?>
+<RadiusPacket>
+  <Attribute sid="User-Name">test-user</Attribute>
+  <Attribute sid="User-Password">0xd0eabb8e7a0501e322e64b42567a4562</Attribute>
+  <Attribute sid="State">0x0001027f</Attribute>
+</RadiusPacket>
