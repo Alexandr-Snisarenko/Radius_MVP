@@ -79,7 +79,7 @@ func vendorLenSize(desc *AttrDescriptor) int {
 	if desc == nil || desc.VendorLenSize < 0 {
 		return 1
 	}
-	if desc == nil || desc.VendorLenSize == 0 {
+	if desc.VendorLenSize == 0 {
 		return 0
 	}
 	return desc.VendorLenSize
