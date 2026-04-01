@@ -28,16 +28,6 @@ import (
 var radiusDict *dictionary.Dictionary
 var radiusRegistry *dict.DictRegistry
 
-func loadDictionary(root string) (*dictionary.Dictionary, error) {
-	parser := &dictionary.Parser{
-		Opener: &dictionary.FileSystemOpener{
-			Root: root,
-		},
-	}
-
-	return parser.ParseFile("dictionary")
-}
-
 func main() {
 	var (
 		port     = flag.Int("port", 1812, "UDP port to listen on")
@@ -45,7 +35,7 @@ func main() {
 		dictRoot = flag.String("dict", "./dictionary", "path to FreeRADIUS dictionary root")
 	)
 	flag.Parse()
-	d, err := loadDictionary(*dictRoot)
+	d, err := dict.LoadDictionary(*dictRoot)
 	if err != nil {
 		log.Fatalf("failed to load dictionary: %v", err)
 	}
