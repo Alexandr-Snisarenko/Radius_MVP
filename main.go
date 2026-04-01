@@ -61,8 +61,8 @@ func main() {
 			if errJSON != nil {
 				log.Printf("radiusdict JSON marshal error: %v", errJSON)
 			} else {
-				log.Printf("received packet JSON:")
-				fmt.Println(jsonStr)
+				log.Printf("received packet: source=%s packet_id=%d code=%s\n", r.RemoteAddr, r.Packet.Identifier, r.Code.String())
+				log.Println(jsonStr)
 			}
 
 			// MVP requirement: always reply Access-Accept.
@@ -75,8 +75,6 @@ func main() {
 			if err := w.Write(response); err != nil {
 				log.Printf("failed to write response: %v", err)
 			}
-			log.Printf("RADIUS MVP server received request from %s", r.RemoteAddr)
-			log.Printf("RADIUS MVP server received request code: %s", r.Code.String())
 
 		}),
 	}
